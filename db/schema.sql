@@ -18,7 +18,7 @@ id INT NOT NULL AUTO_INCREMENT,
 partay_id INT NOT NULL,
 user_id INT NOT NULL,
 attending BOOLEAN DEFAULT NULL,
-invite_response_text VARCHAR(255),
+response VARCHAR(255),
 PRIMARY KEY (id)
 );
 
