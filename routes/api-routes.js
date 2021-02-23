@@ -21,7 +21,7 @@ module.exports = function(app) {
     console.log(req.body)
     db.User.create({
       first_name: req.body.first_name,
-      last_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password
     })
