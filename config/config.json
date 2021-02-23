@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "rootroot",
-    "database": "passport_demo",
+    "password": "password",
+    "database": "partay_tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
