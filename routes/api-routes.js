@@ -46,7 +46,7 @@ module.exports = function(app) {
       host_user_id: req.user.id
     })
     .then(() => {
-      res.redirect(307, "/partays");
+      res.redirect(307, "/home");
     })
     .catch(err => {
       res.status(401).json(err);
