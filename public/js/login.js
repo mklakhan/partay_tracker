@@ -29,7 +29,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/api/create-partay");
+        window.location.replace("/api/createpartay");
         // If there's an error, log the error
       })
       .catch(err => {

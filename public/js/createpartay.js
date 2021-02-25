@@ -31,7 +31,7 @@ $(document).ready(() => {
   });
 
   function createPartay(partay_name, partay_summary, partay_date, partay_time) {
-    $.post("/api/create-partay", {
+    $.post("/api/createpartay", {
       partay_name: partay_name,
       partay_summary: partay_summary,
       partay_date: partay_date,
