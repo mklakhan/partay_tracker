@@ -32,6 +32,31 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
+  
+  app.post("/api/partays", (req, res) => {
+    console.log(req.user)
+    // console.log("api_members_id" + req.body)
+    //  const user = db.User.findOne({
+    //    where: {id:req.params.id}
+    //  }).then(() => {
+    // console.log(req.body.partay_name);
+    //   const Partay = db.Partay.create({
+    //     partay_name: req.body.partay_name,
+    //     partay_summary: req.body.partay_summary,
+    //     partay_date: req.body.partay_date,
+    //     partay_time: req.body.partay_time
+    //   });
+    //   console.log("addUser");
+    //   Partay.setUser(user);
+    //  });
+      // .then(() => {
+      //   console.log(res.json(db.User))
+      //   // res.redirect(307, "/api/login");
+      // })
+      // .catch(err => {
+      //   res.status(401).json(err);
+      // });
+  });
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
