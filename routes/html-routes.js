@@ -1,5 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
+
+// Requiring our models to get data from the database
 const db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
