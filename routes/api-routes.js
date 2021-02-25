@@ -33,7 +33,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/partays", (req, res) => {
+  app.post("/api/create-partay", (req, res) => {
     console.log(req.user)
     console.log(req.user.id)
     console.log(req.body)
@@ -45,12 +45,12 @@ module.exports = function(app) {
       partay_time: req.body.partay_time,
       host_user_id: req.user.id
     })
-    // .then(() => {
-    //   res.redirect(307, "/members");
-    // })
-    // .catch(err => {
-    //   res.status(401).json(err);
-    // });
+    .then(() => {
+      res.redirect(307, "/partays");
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
     // console.log("api_members_id" + req.body)
     //  const user = db.User.findOne({
     //    where: {id:req.params.id}
