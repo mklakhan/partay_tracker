@@ -1,18 +1,18 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Partay = sequelize.define("Partay", {
-    name: {
+    partay_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    summary: {
+    partay_summary: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    date: {
+    partay_date: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    time: {
+    partay_time: {
       type: DataTypes.TIME,
       allowNull: false
     },
@@ -20,6 +20,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     }
+  }, {
+    underscored: true
   });
+  // Partay.associate = (models) => {
+  //   Partay.belongsTo(models.User, {
+  //     foreignKey: { allowNull: false, name: 'host_user_id' }
+  //   });
+  // };
   return Partay;
 };

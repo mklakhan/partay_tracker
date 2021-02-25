@@ -33,18 +33,18 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/members", (req, res) => {
+  app.post("/api/partays", (req, res) => {
     console.log(req.user)
     console.log(req.user.id)
     console.log(req.body)
 
-    // db.Partay.create({
-    //   partay_name: req.body.partay_name,
-    //   partay_summary: req.body.partay_summary,
-    //   partay_date: req.body.partay_date,
-    //   partay_time: req.body.partay_time,
-    //   host_user_id: req.user.id
-    // })
+    db.Partay.create({
+      partay_name: req.body.partay_name,
+      partay_summary: req.body.partay_summary,
+      partay_date: req.body.partay_date,
+      partay_time: req.body.partay_time,
+      host_user_id: req.user.id
+    })
     // .then(() => {
     //   res.redirect(307, "/members");
     // })
