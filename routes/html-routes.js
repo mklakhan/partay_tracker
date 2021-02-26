@@ -32,6 +32,11 @@ module.exports = function(app) {
       user: req.user
     })
   });
+  app.get("/createpartay", (req, res) => {
+    res.render('createpartay', {
+      user: req.user
+    })
+  });
   app.get("/partays/:id", (req, res) => {
     const partayId = req.params.id
     db.Partay.findOne({

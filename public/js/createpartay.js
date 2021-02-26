@@ -23,14 +23,14 @@ $(document).ready(() => {
       return;
     };
 
-    startUpPartay(partayData.partay_name, partayData.partay_summary, partayData.partay_date, partayData.partay_time);
+    createPartay(partayData.partay_name, partayData.partay_summary, partayData.partay_date, partayData.partay_time);
     partay_nameInput.val("");
     partay_summaryInput.val("");
     partay_dateInput.val("");
     partay_timeInput.val("");
   })
 
-  function startUpPartay(partay_name, partay_summary, partay_date, partay_time) {
+  function createPartay(partay_name, partay_summary, partay_date, partay_time) {
     $.post("/api/partays", {
       partay_name: partay_name,
       partay_summary: partay_summary,
