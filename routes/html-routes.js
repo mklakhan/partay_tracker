@@ -39,17 +39,17 @@ module.exports = function(app) {
         id: partayId
       }
     })
-    .then(data => {
-      console.log(data)
-      res.render('partay', {
-        partayData: data
+      .then(data => {
+        // console.log(data)
+        res.render('partay', {
+          partayData: data
+        })
+        // console.log({
+        //   partayData: data
+        // })
       })
-      console.log({
-        partayData: data
+      .catch(err => {
+        throw err;
       })
-    })
-    .catch(err => {
-      throw err;
-    })
   })
 };
