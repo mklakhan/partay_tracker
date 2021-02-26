@@ -64,7 +64,7 @@ module.exports = function(app) {
       }
     })
       .then(data => {
-        // console.log(data)
+        console.log(data)
         res.render('partay', {
           partayData: data
         })
