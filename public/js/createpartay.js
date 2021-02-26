@@ -30,7 +30,7 @@ $(document).ready(() => {
     partay_timeInput.val("");
     
     // redirect to home page on submit
-    window.location.replace("/home");
+    // window.location.replace("/home");
   })
 
   function createPartay(partay_name, partay_summary, partay_date, partay_time) {
@@ -40,10 +40,13 @@ $(document).ready(() => {
       partay_date: partay_date,
       partay_time: partay_time
     })
-      // .then(() => {
-      //   window.location.replace("/members");
-      //   // If there's an error, handle it by throwing up a bootstrap alert
-      // })
-      // .catch(handleLoginErr);
+      .then((redirectURL) => {
+        console.log(redirectURL)
+        window.location = redirectURL
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(err => {
+        throw err
+      });
   }
 });

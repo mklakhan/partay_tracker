@@ -28,16 +28,34 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/home", isAuthenticated, (req, res) => {
     console.log(req.user)
-    res.render('home', {
-      user: req.user
+    db.Partay.findAll({
+      raw: true,
+      where: {
+        host_user_id: req.user.id
+      }
+    }).then(partayData => {
+      res.render('home', {
+        partayData: partayData
+      })
+    }).catch(err => {
+      throw err;
     })
   });
-  app.get("/createpartay", (req, res) => {
+
+
+
+
+  app.get("/createpartay", isAuthenticated, (req, res) => {
     res.render('createpartay', {
       user: req.user
     })
   });
-  app.get("/partays/:id", (req, res) => {
+
+
+
+
+
+  app.get("/partays/:id", isAuthenticated, (req, res) => {
     const partayId = req.params.id
     db.Partay.findOne({
       raw: true,

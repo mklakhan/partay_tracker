@@ -18,7 +18,7 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     db.User.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -34,9 +34,9 @@ module.exports = function(app) {
   });
 
   app.post("/api/partays", (req, res) => {
-    console.log(req.user)
-    console.log(req.user.id)
-    console.log(req.body)
+    // console.log(req.user)
+    // console.log(req.user.id)
+    // console.log(req.body)
 
     db.Partay.create({
       partay_name: req.body.partay_name,
@@ -45,12 +45,17 @@ module.exports = function(app) {
       partay_time: req.body.partay_time,
       host_user_id: req.user.id
     })
-    // .then(() => {
-    //   res.redirect(307, "/members");
-    // })
-    // .catch(err => {
-    //   res.status(401).json(err);
-    // });
+    .then((newPartay) => {
+      const p = newPartay.get({plain: true})
+      
+      console.log("list all parties " + p)
+      res.send(`/partays/${p.id}`)
+     
+     
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
     // console.log("api_members_id" + req.body)
     //  const user = db.User.findOne({
     //    where: {id:req.params.id}
