@@ -1,3 +1,8 @@
+{{!-- <script type="text/javascript">
+    Handlebars.registerHelper('isdefined', function (value) {
+        return value !== undefined;
+    });
+</script> --}}
 <div class="container">
     <div style="margin-top: 100px;" class="jumbotron">
         <h1 id="partay-name" style="font-weight: 900;">{{this.partayData.partay_name}}</h1>
@@ -11,6 +16,7 @@
         <p>
             <a href="http://localhost:8080/home" class="btn btn-primary" role="button">Home</a>
         </p>
+        {{!-- {{#if (isdefined this.partayData.host_user_id)}}true{{else}}false{{/if}} --}}
     </div>
 </div>
-<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/partay.js"></script>
