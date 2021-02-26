@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Welcome <span class="member-name"></span></h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Create A New Party!</h2>
+      <form class="partay">
+        <div class="form-group">
+          <label for="exampleInputPartayName1">Partay Name</label>
+          <input type="text" class="form-control" id="partay_name-input" placeholder="Partay Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPartaySummary1">Partay Summary</label>
+          <input type="text" class="form-control" id="partay_summary-input" placeholder="Partay Summary">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPartayDate1">Partay Date</label>
+          <input type="date" class="form-control" id="partay_date-input" placeholder="Partay Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPartayTime1">Partay Time</label>
+          <input type="time" class="form-control" id="partay_time-input" placeholder="Partay Time">
+        </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/createpartay.js"></script>
