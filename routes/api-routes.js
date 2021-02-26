@@ -44,6 +44,7 @@ module.exports = function(app) {
       partay_date: req.body.partay_date,
       partay_time: req.body.partay_time,
       partay_location: req.body.partay_location,
+      partay_image: req.body.partay_image,
       host_user_id: req.user.id
     })
     .then((newPartay) => {
