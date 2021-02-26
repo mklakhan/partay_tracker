@@ -16,6 +16,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TIME,
       allowNull: false
     },
+    partay_location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     host_user_id: {
       type: DataTypes.INTEGER,
       allowNull: false

@@ -42,18 +42,11 @@ module.exports = function(app) {
     })
   });
 
-
-
-
   app.get("/createpartay", isAuthenticated, (req, res) => {
     res.render('createpartay', {
       user: req.user
     })
   });
-
-
-
-
 
   app.get("/partays/:id", isAuthenticated, (req, res) => {
     const partayId = req.params.id
