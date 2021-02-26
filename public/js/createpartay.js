@@ -28,6 +28,9 @@ $(document).ready(() => {
     partay_summaryInput.val("");
     partay_dateInput.val("");
     partay_timeInput.val("");
+    
+    // redirect to home page on submit
+    window.location.replace("/home");
   })
 
   function createPartay(partay_name, partay_summary, partay_date, partay_time) {
