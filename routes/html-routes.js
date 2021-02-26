@@ -35,6 +35,7 @@ module.exports = function(app) {
       }
     }).then(partayData => {
       res.render('home', {
+        user: req.user,
         partayData: partayData
       })
     }).catch(err => {
@@ -59,6 +60,7 @@ module.exports = function(app) {
       .then(data => {
         console.log(data)
         res.render('partay', {
+          user: req.user,
           partayData: data
         })
         // console.log({
