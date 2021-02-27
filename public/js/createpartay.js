@@ -47,7 +47,8 @@ $(document).ready(() => {
     })
       .then((redirectURL) => {
         console.log(redirectURL)
-        window.location = redirectURL
+        // window.location = redirectURL;
+        window.location = "/"
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(err => {

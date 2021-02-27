@@ -33,6 +33,22 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/attends", (req,res) => {
+    db.Attend.create({
+      attending: req.body.attending,
+      partay_id: req.body.partay_id,
+      user_id: req.body.user_id
+    })
+    .then((attendingData) => {
+      const a = attendingData.get({plain: true});
+      console.log(a)
+      res.send(`/partays/${a.partay_id}`)
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
+  });
+
   app.post("/api/partays", (req, res) => {
     // console.log(req.user)
     // console.log(req.user.id)
@@ -49,8 +65,6 @@ module.exports = function(app) {
     })
     .then((newPartay) => {
       const p = newPartay.get({plain: true});
-      
-      console.log("list all parties " + p);
 
       res.send(`/partays/${p.id}`);
     })
