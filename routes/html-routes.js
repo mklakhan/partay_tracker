@@ -29,10 +29,7 @@ module.exports = function(app) {
   app.get("/home", isAuthenticated, (req, res) => {
     console.log(req.user)
     db.Partay.findAll({
-      raw: true,
-      where: {
-        host_user_id: req.user.id
-      }
+      raw: true
     }).then(partayData => {
       res.render('home', {
         user: req.user,
