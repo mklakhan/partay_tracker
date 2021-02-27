@@ -40,6 +40,12 @@ module.exports = function(app) {
     })
   });
 
+  // app.get("/home", isAuthenticated, (req, res) => {
+  //   res.render('home', {
+  //     user: req.user
+  //   })
+  // });
+
   app.get("/createpartay", isAuthenticated, (req, res) => {
     res.render('createpartay', {
       user: req.user
