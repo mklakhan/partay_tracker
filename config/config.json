@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "bootcamp",
-=======
-    "password": "root",
->>>>>>> origin/attend-bring
     "database": "partay_tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
