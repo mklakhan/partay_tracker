@@ -2,6 +2,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
+//for email via nodemailer
+const transporter=require("../util/nodetransport");
+
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -26,6 +29,20 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
+        //for email via nodemailer
+        //  transporter.sendMail({
+        //   from: 'Partay Tracker <partytracker@gmail.com>', // sender address
+        //   to: req.body.email, // list of receivers
+        //   subject: "Welcome to the Partay!", // Subject line
+        //   text: `Hello ${req.body.first_name}`, // plain text body
+        //   html: "<b>Welcome to the Partay!</b>", // html body
+        // }, (err, info) => {
+        //   if (err) {
+        //     console.log(err)
+        //   } else {
+        //     console.log(`email sent: ${info.response}`)
+        //   }
+        // });
         res.redirect(307, "/api/login");
       })
       .catch(err => {
