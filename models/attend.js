@@ -3,15 +3,19 @@ module.exports = function (sequelize, DataTypes) {
         attending: {
             type: DataTypes.BOOLEAN,
             allowNull: true
-        },
-        partay_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
         }
     });
+    Attend.associate = function(models) {
+        Attend.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        })
+        Attend.belongsTo(models.Partay, {
+            foreignKey: {
+                allowNull: false
+            }
+        })
+    }
     return Attend;
 };
