@@ -3,7 +3,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 
 //for email via nodemailer
-const transporter=require("../util/nodetransport");
+const {transporter, emailData} = require("../util/nodetransport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -29,23 +29,21 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
-        //for email via nodemailer
-        //  transporter.sendMail({
-        //   from: 'Partay Tracker <partytracker@gmail.com>', // sender address
-        //   to: req.body.email, // list of receivers
-        //   subject: "Welcome to the Partay!", // Subject line
-        //   text: `Hello ${req.body.first_name}`, // plain text body
-        //   html: "<b>Welcome to the Partay!</b>", // html body
-        // }, (err, info) => {
-        //   if (err) {
-        //     console.log(err)
-        //   } else {
-        //     console.log(`email sent: ${info.response}`)
-        //   }
-        // });
+        // for email via nodemailer
+         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now organize or join partays! 🥳"), (err, info) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(`email sent: ${info.response}`)
+          }
+        });
+        // res.redirect(307, "/api/login");
+      })
+      .then(() => {
         res.redirect(307, "/api/login");
       })
       .catch(err => {
+        console.log(err)
         res.status(401).json(err);
       });
   });
