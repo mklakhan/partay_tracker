@@ -6,7 +6,11 @@ form.login {
 .navbar {
   background: transparent;
   border-color: transparent;
-}
+  }
+
+  .navbar-brand {
+  text-decoration:white
+  }
 
 body {
   background-color: #230b72;
@@ -42,6 +46,8 @@ h2 {
 span {
   display: inline-block;
 }
+
+/* signup  */
 
 .signup:before {
   content: '';
@@ -95,12 +101,6 @@ span {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-footer {
-  padding: 20px;
-  text-align: center;
-  
 }
 
 
@@ -201,3 +201,15 @@ footer {
   .col-md-9{width: 76%;}
   
 } */
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: small;
+  font-family: 'Ubuntu', sans-serif;
+}
