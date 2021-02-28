@@ -26,7 +26,7 @@ module.exports = function(app) {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.user_password
     })
       .then(() => {
         //for email via nodemailer
