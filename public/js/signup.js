@@ -6,6 +6,8 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
 
+  // const confettiElement = $('my-canvas');
+
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
@@ -48,3 +50,26 @@ $(document).ready(() => {
     $("#alert").fadeIn(500);
   }
 });
+
+let animation = anime({
+  targets: '.letter',
+  opacity: 1,
+  translateY: 50, 
+  rotate: {
+    value: 360,
+    duration: 2000,
+    easing: 'easeInExpo'
+  }, 
+  scale: anime.stagger([0.7, 1], {from: 'center'}), 
+  delay: anime.stagger(100, {start: 1000}), 
+  translateX: [-10, 30]
+}); 
+
+let animationOne = anime({
+  targets: '.letter-one',
+  opacity: 1,
+  translateX: -50,
+  delay: anime.stagger(100)
+ 
+});
+
