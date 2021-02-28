@@ -32,9 +32,9 @@ module.exports = function (sequelize, DataTypes) {
     underscored: true
   });
   Partay.associate = (models) => {
-    Partay.belongsTo(models.User, {
-      foreignKey: { allowNull: false, name: 'host_user_id' }
-    });
+    // Partay.belongsTo(models.User, {
+    //   foreignKey: { allowNull: false, name: 'host_user_id' }
+    // });
     Partay.hasMany(models.Attend, {
       foreignKey: { allowNull: false}
     });

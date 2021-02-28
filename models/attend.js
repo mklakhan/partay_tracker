@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Attend = sequelize.define("Invite", {
+    const Attend = sequelize.define("Attend", {
         attending: {
             type: DataTypes.BOOLEAN,
             allowNull: true

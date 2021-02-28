@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Item = sequelize.define("Invite", {
+    const Item = sequelize.define("Item", {
         bring: {
             type: DataTypes.STRING,
             allowNull: true
