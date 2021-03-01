@@ -4,6 +4,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             allowNull: true
         }
+    }, {
+        underscored: true
     });
     Attend.associate = function(models) {
         Attend.belongsTo(models.User, {

@@ -10,17 +10,29 @@ $(document).ready(() => {
         // event.preventDefault();
         const attendData = {
             attending: true,
-            // partay_id: event.target.value,
+            partay_id: event.target.value
             // user_id: user.id
         };
+
         // attendPartay(attendData.attending, attendData.partay_id, attendData.user_id);
-        attendPartay(attendData.attending);
+        attendPartay(attendData.attending, attendData.partay_id);
         console.log(attendData)
     });
 
-    function attendPartay(attending) {
+    function attendPartay(attending, partay_id) {
+
+        // $.get("/api/attends")
+        //     .then((redirectURL) => {
+        //         console.log(redirectURL)
+        //         window.location = redirectURL;
+        //     })
+        //     .catch(err => {
+        //         throw err
+        //     });
+
         $.post("/api/attends", {
-            attending: attending
+            attending: attending,
+            partay_id: partay_id
         })
             .then((redirectURL) => {
                 console.log(redirectURL)

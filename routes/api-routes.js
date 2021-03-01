@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -33,21 +34,51 @@ module.exports = function(app) {
       });
   });
 
-  // app.post("/api/attends", (req,res) => {
-  //   db.Attend.create({
-  //     attending: req.body.attending,
-  //     partay_id: req.body.partay_id,
-  //     user_id: req.body.user_id
-  //   })
-  //   .then((attendingData) => {
-  //     const a = attendingData.get({plain: true});
-  //     console.log(a)
-  //     res.send(`/partays/${a.partay_id}`)
-  //   })
-  //   .catch(err => {
-  //     res.status(401).json(err);
-  //   });
-  // });
+  app.post("/api/attends", (req,res) => {
+    
+    console.log(req.body, req.user)
+
+    db.User.create({
+      first_name: ""
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.password
+    }).then(() => {
+      // res.redirect(307, "/api/login");
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
+    // db.Attend.create({
+    //   attending: true,
+    //   partay_id: req.body.partay_id,
+    //   user_id: req.user.id
+    // })
+    // .then((attendingData) => {
+    //   const a = attendingData.get({plain: true});
+    //   console.log(a)
+    //   res.send(`/partays/${a.partay_id}`)
+    // })
+    // .catch(err => {
+    //   res.status(401).json(err);
+    // });
+  });
+
+
+
+  app.get("/api/attends", (req,res) => {
+    db.Attend.findOne({
+      partay_id: req.body.partay_id,
+      user_id: req.user.id
+    })
+    .then((attendingData) => {
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
+  });
+
+
 
   app.post("/api/partays", (req, res) => {
     db.Partay.create({
