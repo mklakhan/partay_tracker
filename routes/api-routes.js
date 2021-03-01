@@ -2,6 +2,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
+//for email via nodemailer
+const {transporter, emailData} = require("../util/nodetransport");
+
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -26,11 +29,39 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
+        // for email via nodemailer
+         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now organize or join partays! 🥳"), (err, info) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(`email sent: ${info.response}`)
+          }
+        });
+        // res.redirect(307, "/api/login");
+      })
+      .then(() => {
         res.redirect(307, "/api/login");
       })
       .catch(err => {
+        console.log(err)
         res.status(401).json(err);
       });
+  });
+
+  app.post("/api/attends", (req,res) => {
+    db.Attend.create({
+      attending: req.body.attending,
+      partay_id: req.body.partay_id,
+      user_id: req.body.user_id
+    })
+    .then((attendingData) => {
+      const a = attendingData.get({plain: true});
+      console.log(a)
+      res.send(`/partays/${a.partay_id}`)
+    })
+    .catch(err => {
+      res.status(401).json(err);
+    });
   });
 
   app.post("/api/partays", (req, res) => {
@@ -49,8 +80,6 @@ module.exports = function(app) {
     })
     .then((newPartay) => {
       const p = newPartay.get({plain: true});
-      
-      console.log("list all parties " + p);
 
       res.send(`/partays/${p.id}`);
     })
