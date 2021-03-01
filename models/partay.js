@@ -24,17 +24,17 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    host_user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
+    // host_user_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // }
   }, {
     underscored: true
   });
   Partay.associate = (models) => {
-    // Partay.belongsTo(models.User, {
-    //   foreignKey: { allowNull: false, name: 'host_user_id' }
-    // });
+    Partay.belongsTo(models.User, {
+      foreignKey: { allowNull: false, name: 'host_user_id' }
+    });
     Partay.hasMany(models.Attend, {
       foreignKey: { allowNull: false}
     });

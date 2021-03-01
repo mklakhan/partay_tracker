@@ -33,21 +33,21 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/attends", (req,res) => {
-    db.Attend.create({
-      attending: req.body.attending,
-      partay_id: req.body.partay_id,
-      user_id: req.body.user_id
-    })
-    .then((attendingData) => {
-      const a = attendingData.get({plain: true});
-      console.log(a)
-      res.send(`/partays/${a.partay_id}`)
-    })
-    .catch(err => {
-      res.status(401).json(err);
-    });
-  });
+  // app.post("/api/attends", (req,res) => {
+  //   db.Attend.create({
+  //     attending: req.body.attending,
+  //     partay_id: req.body.partay_id,
+  //     user_id: req.body.user_id
+  //   })
+  //   .then((attendingData) => {
+  //     const a = attendingData.get({plain: true});
+  //     console.log(a)
+  //     res.send(`/partays/${a.partay_id}`)
+  //   })
+  //   .catch(err => {
+  //     res.status(401).json(err);
+  //   });
+  // });
 
   app.post("/api/partays", (req, res) => {
     db.Partay.create({
@@ -69,9 +69,9 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/home", function (req,res){
+  // app.get("/api/home", function (req,res){
     
-  })
+  // })
 
   // Route for logging user out
   app.get("/logout", (req, res) => {

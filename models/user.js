@@ -41,10 +41,10 @@ module.exports = function (sequelize, DataTypes) {
   });
   User.associate = (models) => {
     User.hasMany(models.Attend, {
-      onDelete: "cascade"
+      onDelete: "cascade", 
     });
     User.hasMany(models.Partay, {
-      onDelete: "cascade"
+      foreignKey: { allowNull: false, name: 'host_user_id' }
     });
   };
   return User;
