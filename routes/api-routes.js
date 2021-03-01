@@ -79,7 +79,23 @@ module.exports = function(app) {
       host_user_id: req.user.id
     })
     .then((newPartay) => {
+      // console.log('newPartay', newPartay)
       const p = newPartay.get({plain: true});
+    // const allEmails = User.findAll({
+    //   attributes:['email']
+    // })
+    // console.log('allEmails', allEmails)
+    let msg= `A new partay has been added by ${req.user.first_name} happening on ${req.body.partay_date} at ${req.body.partay_time}, located at ${req.body.partay_location}! Here is the summary: ${req.body.partay_summary}` 
+
+      transporter.sendMail( emailData (req.user.email, "New Partay Alert!", msg), (err, info) => {
+        if (err) {
+          // console.log(err)
+        } else {
+          // console.log(`email sent: ${info.response}`);
+          // console.log('results', results)
+          return results
+        }
+      });
 
       res.send(`/partays/${p.id}`);
     })
@@ -108,6 +124,7 @@ module.exports = function(app) {
       //   res.status(401).json(err);
       // });
   });
+
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
