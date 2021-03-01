@@ -1,7 +1,7 @@
 <div class="container">
     <div style="margin-top: 100px;" class="jumbotron">
         <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
                 <p style="font-weight: 900; font-size: 400%">Welcome <span class="member-name"></span></p>
             </div>
         </div>
@@ -19,7 +19,8 @@
                             <p><b>When is this happening: </b>{{partay_date}}</p>
                             <p><b>What time is this at: </b>{{partay_time}}</p>
                             <p><b>Where is this at: </b>{{partay_location}}</p>
-                            <button value="{{id}}" type="button" class="btn btn-default attend">Attend This Partay!</button>
+                            <button value="{{id}}" type="button" class="btn btn-danger attend">ATTEND PARTAY</button>
+                            <a href="/partays/{{id}}" class="btn btn-primary" role="button">VIEW PARTAY</a>
                         </div>
                     </div>
                 {{/each}}

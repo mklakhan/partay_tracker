@@ -47,6 +47,25 @@ module.exports = function(app) {
     })
   });
 
+  // app.get("/partays/:id", isAuthenticated, (req, res) => {
+  //   const partayId = req.params.id;
+  //   db.Partay.findOne({
+  //     raw: true,
+  //     where: {
+  //       id: partayId
+  //     }
+  //   })
+  //     .then(data => {
+  //       res.render('partay', {
+  //         user: req.user,
+  //         partayData: data
+  //       });
+  //   })
+  //     .catch(err => {
+  //     throw err;
+  //   });
+  // });
+
   app.get("/partays/:id", isAuthenticated, (req, res) => {
     const partayId = req.params.id
     db.Attend.findAll({

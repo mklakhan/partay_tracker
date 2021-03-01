@@ -3,7 +3,7 @@ $(document).ready(() => {
     const attendBtn = $(".attend");
 
     $.get("/api/user_data").then(data => {
-        $(".member-name").text((data.first_name) + " " + (data.last_name));
+        $(".member-name").text((data.first_name)); // + " " + (data.last_name)
     });
 
     attendBtn.on("click", event => {
