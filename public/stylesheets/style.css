@@ -204,7 +204,6 @@ span {
 
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -212,4 +211,6 @@ footer {
   text-align: center;
   font-size: small;
   font-family: 'Ubuntu', sans-serif;
+  padding: 3em;
+  margin-top: auto;
 }
