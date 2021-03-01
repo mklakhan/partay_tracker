@@ -85,9 +85,9 @@ module.exports = function(app) {
     //   attributes:['email']
     // })
     // console.log('allEmails', allEmails)
-    let msg= `A new partay has been added by ${req.user.first_name} happening on ${req.body.partay_date} at ${req.body.partay_time}, located at ${req.body.partay_location}! Here is the summary: ${req.body.partay_summary}` 
+    let msg= `A new partay has been added by ${req.user.first_name} and is happening on ${req.body.partay_date} at ${req.body.partay_time}, located at ${req.body.partay_location}! Hope to see you there! 🥳` 
 
-      transporter.sendMail( emailData (req.user.email, "New Partay Alert!", msg), (err, info) => {
+      transporter.sendMail( emailData (req.user.email, "🎉"New Partay Alert🎉"!", msg), (err, info) => {
         if (err) {
           // console.log(err)
         } else {
