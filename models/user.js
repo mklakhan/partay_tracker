@@ -41,6 +41,7 @@ module.exports = function (sequelize, DataTypes) {
   });
   User.associate = (models) => {
     User.hasMany(models.Attend, {
+      foreignKey: { allowNull: false, name: 'user_id' },
       onDelete: "cascade", 
     });
     User.hasMany(models.Partay, {

@@ -49,21 +49,27 @@ module.exports = function(app) {
 
   app.get("/partays/:id", isAuthenticated, (req, res) => {
     const partayId = req.params.id
-    db.Partay.findOne({
+    db.Attend.findAll({
       raw: true,
       where: {
-        id: partayId
-      }
+        partay_id: partayId
+      },
+      include: [db.Partay, db.User]
     })
       .then(data => {
         console.log(data)
         res.render('partay', {
           user: req.user,
-          partayData: data
-        })
-        // console.log({
-        //   partayData: data
-        // })
+          partay_name: data[0]['Partay.partay_name'],
+          partay_summary: data[0]['Partay.partay_summary'],
+          partay_date: data[0]['Partay.partay_date'],
+          partay_time: data[0]['Partay.partay_time'],
+          partay_location: data[0]['Partay.partay_location'],
+          partay_image: data[0]['Partay.partay_image'],
+          partayData: data.map(attendee => {return {
+            name: attendee["User.first_name"] + " " + attendee["User.last_name"]
+          }})
+        });
       })
       .catch(err => {
         throw err;

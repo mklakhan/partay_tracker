@@ -9,15 +9,11 @@ module.exports = function (sequelize, DataTypes) {
     });
     Attend.associate = function(models) {
         Attend.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
+            foreignKey: { allowNull: false, name: "user_id" }
+        });
         Attend.belongsTo(models.Partay, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
-    }
+            foreignKey: { allowNull: false, name: "partay_id" }
+        });
+    };
     return Attend;
 };

@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: { allowNull: false, name: 'host_user_id' }
     });
     Partay.hasMany(models.Attend, {
-      foreignKey: { allowNull: false}
+      foreignKey: { allowNull: false, name: "partay_id" }
     });
   };
   return Partay;

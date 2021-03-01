@@ -16,19 +16,9 @@ $(document).ready(() => {
 
         // attendPartay(attendData.attending, attendData.partay_id, attendData.user_id);
         attendPartay(attendData.attending, attendData.partay_id);
-        console.log(attendData)
     });
 
     function attendPartay(attending, partay_id) {
-
-        // $.get("/api/attends")
-        //     .then((redirectURL) => {
-        //         console.log(redirectURL)
-        //         window.location = redirectURL;
-        //     })
-        //     .catch(err => {
-        //         throw err
-        //     });
 
         $.post("/api/attends", {
             attending: attending,
@@ -39,6 +29,7 @@ $(document).ready(() => {
                 window.location = redirectURL;
             })
             .catch(err => {
+                console.log(err)
                 throw err
             });
     }
