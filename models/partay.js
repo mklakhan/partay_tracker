@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     partay_summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     partay_date: {
