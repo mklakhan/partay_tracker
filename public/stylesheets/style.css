@@ -148,10 +148,11 @@ span {
   content: "";
   background: linear-gradient(
     45deg,
+    #ebe717,
     #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
+    #26ac1a,
+    #60f724,
+    #18f1cd,
     #002bff,
     #7a00ff
   );
@@ -189,10 +190,11 @@ span {
   height: 100%;
   background: linear-gradient(
     45deg,
+    #ebe717,
     #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
+    #26ac1a,
+    #60f724,
+    #18f1cd,
     #002bff,
     #7a00ff
   );

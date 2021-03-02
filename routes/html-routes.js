@@ -77,8 +77,8 @@ module.exports = function(app) {
     })
       .then(data => {
         console.log(data)
-        if(data.length){
-        res.render('partay', {
+        if (data.length) {
+          res.render('partay', {
           user: req.user,
           partay_name: data[0]['Partay.partay_name'],
           partay_summary: data[0]['Partay.partay_summary'],
@@ -94,7 +94,7 @@ module.exports = function(app) {
             return acc;
           }, []).map(moniker=>{return{name: moniker}})
         });
-      }else{
+      } else {
         db.Partay.findAll({
           raw: true,
           where: {
@@ -102,16 +102,16 @@ module.exports = function(app) {
           },
           include: [db.User]}).then(dataTwo => {
 
-            console.log(dataTwo)
+          console.log(dataTwo)
         
           res.render('partay', {
           user: req.user,
-          partay_name: dataTwo[0]['Partay.partay_name'],
-          partay_summary: dataTwo[0]['Partay.partay_summary'],
-          partay_date: dataTwo[0]['Partay.partay_date'],
-          partay_time: dataTwo[0]['Partay.partay_time'],
-          partay_location: dataTwo[0]['Partay.partay_location'],
-          partay_image: dataTwo[0]['Partay.partay_image'],
+          partay_name: dataTwo[0]['partay_name'],
+          partay_summary: dataTwo[0]['partay_summary'],
+          partay_date: dataTwo[0]['partay_date'],
+          partay_time: dataTwo[0]['partay_time'],
+          partay_location: dataTwo[0]['partay_location'],
+          partay_image: dataTwo[0]['partay_image'],
           partayData: dataTwo.map(attendee => {return {
             name: attendee["User.first_name"] + " " + attendee["User.last_name"]
           }})

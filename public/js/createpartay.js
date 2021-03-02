@@ -48,11 +48,27 @@ $(document).ready(() => {
       .then((redirectURL) => {
         console.log(redirectURL)
         // window.location = redirectURL;
-        window.location = "/"
+        window.location = "/";
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(err => {
         throw err
       });
   }
+});
+
+let animationOne = anime.timeline({loop: false})
+.add({
+  targets: '.letter',
+  scale: [14,1],
+  opacity: [0,1],
+  easing: "easeOutCirc",
+  duration: 800,
+  delay: (el, i) => 300 * i
+}).add({
+  targets: '.letter',
+  opacity: 1,
+  duration: 1000,
+  easing: "easeOutExpo",
+  delay: 1000
 });
