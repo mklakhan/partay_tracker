@@ -1,22 +1,43 @@
 form.signup,
 form.login {
   margin: 50px;
+  
 }
 
 .navbar {
   background: transparent;
   border-color: transparent;
+
   }
 
   .navbar-brand {
   text-decoration:white
   }
 
+  text-shadow: 2px 2px 4px black, 0 0 35px white, 0 0 5px #230b72;
+  
+}
+
+ a {
+  color: inherit;
+}
+
+a:hover{
+  text-decoration: none;
+  color: green;
+  /* text-shadow: 1px 1px 2px black, 0 0 25px white; */
+}
+
+
 body {
   background-color: #230b72;
   font-family: 'Ubuntu', sans-serif;
-  color: white;
 }
+
+.form-group {
+  color: #ffff;
+}
+
 
 .letter {
   display: inline-block;
@@ -26,9 +47,6 @@ body {
  
 }
 
-h2 {
-  color: white;
-}
 
 .letter-one {
   display: block;
@@ -107,13 +125,13 @@ span {
 /* create partay */
 .partay:before {
   content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(45deg, #ff7300,#fffb00, #48ff00, #00ffd5, #002bff, #7a00ff);
   position: absolute;
   top: -2px;
   left:-2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
+  filter: blur(3px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   animation: glowing 60s linear infinite;
@@ -140,7 +158,7 @@ span {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(45deg,#ff7300,#fffb00, #48ff00, #00ffd5, #002bff, #7a00ff);
   left: 0;
   top: 0;
   border-radius: 20px;
@@ -151,7 +169,7 @@ span {
 /* login */
 .login:before {
   content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(45deg, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
   top: -2px;
   left:-2px;
@@ -184,7 +202,7 @@ span {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(45deg, #002bff, #7a00ff, #ff00c8, #ff0000);
   left: 0;
   top: 0;
   border-radius: 20px;
@@ -196,11 +214,12 @@ span {
   .col-md-9{width: 76%;}
 } */
 
-/* @media only screen and (min-width: 325px) {
-  .col-md-3{width: 10%; display: inline-flex;font-size: 12px;}
+@media only screen and (max-width: 325px) {
+  .col-md-3{width: 10%; display: none ;font-size: 12px;}
   .col-md-9{width: 76%;}
   
-} */
+
+} 
 
 
 footer {
@@ -214,3 +233,5 @@ footer {
   padding: 3em;
   margin-top: auto;
 }
+
+

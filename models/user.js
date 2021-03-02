@@ -75,10 +75,14 @@ module.exports = function (sequelize, DataTypes) {
       null
     );
   });
-  // User.associate = (models) => {
-  //   User.hasMany(models.Partay, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.Attend, {
+      foreignKey: { allowNull: false, name: 'user_id' },
+      onDelete: "cascade", 
+    });
+    User.hasMany(models.Partay, {
+      foreignKey: { allowNull: false, name: 'host_user_id' }
+    });
+  };
   return User;
 };

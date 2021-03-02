@@ -42,11 +42,13 @@ $(document).ready(() => {
         window.location.replace("/home");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
-      .catch(handleLoginErr);
+      .catch((handleLoginErr) => {
+        console.log('handleLoginErr', handleLoginErr)
+      });
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text(err.responseJSON.error);
     $("#alert").fadeIn(500);
   }
 });
@@ -54,22 +56,24 @@ $(document).ready(() => {
 let animation = anime({
   targets: '.letter',
   opacity: 1,
-  translateY: 50, 
-  rotate: {
-    value: 360,
-    duration: 2000,
-    easing: 'easeInExpo'
-  }, 
-  scale: anime.stagger([0.7, 1], {from: 'center'}), 
-  delay: anime.stagger(100, {start: 1000}), 
-  translateX: [-10, 30]
+  translateY: 25, 
+  scale: [
+    {value: .1, easing: 'easeOutSine', duration: 500},
+    {value: 1, easing: 'easeInOutQuad', duration: 1200}
+  ],
+  delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
 }); 
 
 let animationOne = anime({
   targets: '.letter-one',
   opacity: 1,
   translateX: -50,
-  delay: anime.stagger(100)
+  // delay: anime.stagger(100),
+  // translateX: 250,
+  delay: function(el, i) { return i * 100; },
+  direction: 'alternate',
+  loop: true,
+  easing: 'easeInOutSine'
  
 });
 
