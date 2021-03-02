@@ -31,7 +31,7 @@ module.exports = function(app) {
     })
       .then(() => {
         // for email via nodemailer
-         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now keep track of all the events organized by your squad! 🥳"), (err, info) => {
+         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now create events and stay up to date on new ones! 🥳"), (err, info) => {
           if (err) {
             console.log(err)
           } else {
@@ -45,7 +45,7 @@ module.exports = function(app) {
       })
       .catch(err => {
         console.log(err)
-        res.status(401).json({error: 'This user already exists.'});
+        res.status(400).json({error: 'This user already exists.'});
       });
   });
 
@@ -61,28 +61,25 @@ module.exports = function(app) {
     })
 
       .then((newPartay) => {
-        // console.log('newPartay', newPartay)
         const p = newPartay.get({ plain: true });
-        // const allEmails = db.User.findAll({
-        //   attributes: ['email']
-        // })
-        // .then((data) => {
-        //   console.log('email:', data[0].User)
-        // })
-        // console.log('allEmails', allEmails)
-        let msg = `A new partay has been added by ${req.user.first_name}! The event is called ${req.body.partay_name} and is happening on ${req.body.partay_date} at ${req.body.partay_time} and located at ${req.body.partay_location}! Hope to see you there! 🥳`
+        db.User.findAll({
+          attributes: ['email']
+        })
+        .then((data) => { 
+          const userEmails = data.map((user) => { 
+            return user.dataValues.email
+          })
+          let msg = `A new partay has been added by ${req.user.first_name}! The event is called ${req.body.partay_name} and is happening on ${req.body.partay_date} at ${req.body.partay_time} and located at ${req.body.partay_location}! Hope to see you there! 🥳`
 
-        transporter.sendMail(emailData(req.user.email, "🎉 Join the Partay! 🎉!", msg), (err, info) => {
+        transporter.sendMail(emailData(userEmails.toString(), "🎉 Join the Partay! 🎉", msg), (err, info) => {
           if (err) {
-            // console.log(err)
           } else {
-            // console.log(`email sent: ${info.response}`);
-            // console.log('results', results)
             return results
           }
         });
-
-        res.send(`/partays/${p.id}`);
+          res.send(`/partays/${p.id}`);
+        })
+       
       })
       .catch(err => {
         res.status(401).json(err);
@@ -109,7 +106,7 @@ module.exports = function(app) {
     })
     .catch(err => {
       console.log(err)
-      res.status(401).json(err);
+      res.status(402).json(err);
     });
   });
 
