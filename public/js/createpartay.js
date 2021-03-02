@@ -9,7 +9,7 @@ $(document).ready(() => {
   const partay_imageInput = $("input#partay_image-input");
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
-    $(".member-name").text(data.email);
+    $(".member-name").text((data.first_name)+" "+(data.last_name));
   });
 
   partayForm.on("submit", event => {
@@ -47,7 +47,8 @@ $(document).ready(() => {
     })
       .then((redirectURL) => {
         console.log(redirectURL)
-        window.location = redirectURL
+        // window.location = redirectURL;
+        window.location = "/"
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(err => {
