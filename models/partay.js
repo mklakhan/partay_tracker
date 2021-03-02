@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     partay_summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     partay_date: {
@@ -23,18 +23,17 @@ module.exports = function (sequelize, DataTypes) {
     partay_image: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    host_user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   }, {
     underscored: true
   });
-  // Partay.associate = (models) => {
-  //   Partay.belongsTo(models.User, {
-  //     foreignKey: { allowNull: false, name: 'host_user_id' }
-  //   });
-  // };
+  Partay.associate = (models) => {
+    Partay.belongsTo(models.User, {
+      foreignKey: { allowNull: false, name: 'host_user_id' }
+    });
+    Partay.hasMany(models.Attend, {
+      foreignKey: { allowNull: false, name: "partay_id" }
+    });
+  };
   return Partay;
 };
