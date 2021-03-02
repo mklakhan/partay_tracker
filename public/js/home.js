@@ -1,5 +1,5 @@
 $(document).ready(() => {
-
+  
     const attendBtn = $(".attend");
 
     $.get("/api/user_data").then(data => {

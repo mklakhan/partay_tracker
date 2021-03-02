@@ -7,6 +7,13 @@ form.login {
 .navbar {
   background: transparent;
   border-color: transparent;
+
+  }
+
+  .navbar-brand {
+  text-decoration:white
+  }
+
   text-shadow: 2px 2px 4px black, 0 0 35px white, 0 0 5px #230b72;
   
 }
@@ -20,6 +27,7 @@ a:hover{
   color: green;
   /* text-shadow: 1px 1px 2px black, 0 0 25px white; */
 }
+
 
 body {
   background-color: #230b72;
@@ -56,6 +64,8 @@ body {
 span {
   display: inline-block;
 }
+
+/* signup  */
 
 .signup:before {
   content: '';
@@ -109,12 +119,6 @@ span {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-footer {
-  padding: 20px;
-  text-align: center;
-  
 }
 
 
@@ -214,5 +218,20 @@ footer {
   .col-md-3{width: 10%; display: none ;font-size: 12px;}
   .col-md-9{width: 76%;}
   
+
+} 
+
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: small;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 3em;
+  margin-top: auto;
 }
+
 

@@ -2,7 +2,11 @@
 const express = require("express");
 const exphbs  = require('express-handlebars');
 const session = require("express-session");
+
+
+//for email via nodemailer
 require('dotenv').config()
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
