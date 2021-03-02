@@ -1,6 +1,7 @@
 form.signup,
 form.login {
   margin: 50px;
+  
 }
 
 .navbar {
@@ -214,3 +215,4 @@ footer {
   .col-md-9{width: 76%;}
   
 }
+

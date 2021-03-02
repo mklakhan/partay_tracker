@@ -87,7 +87,7 @@ module.exports = function(app) {
       .catch(err => {
         res.status(401).json(err);
       });
-    
+    });
 
   app.post("/api/attends", (req,res) => {
     console.log("------------------------")
@@ -136,4 +136,4 @@ module.exports = function(app) {
       });
     }
   });
-};
+}
