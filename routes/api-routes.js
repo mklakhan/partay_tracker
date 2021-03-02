@@ -29,17 +29,17 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     })
-      // .then(() => {
-      //   // for email via nodemailer
-      //    transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now keep track of all the events organized by your squad! 🥳"), (err, info) => {
-      //     if (err) {
-      //       console.log(err)
-      //     } else {
-      //       console.log(`email sent: ${info.response}`)
-      //     }
-      //   });
-      //   // res.redirect(307, "/api/login");
-      // })
+      .then(() => {
+        // for email via nodemailer
+         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now keep track of all the events organized by your squad! 🥳"), (err, info) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(`email sent: ${info.response}`)
+          }
+        });
+        // res.redirect(307, "/api/login");
+      })
       .then(() => {
         res.redirect(307, "/api/login");
       })
