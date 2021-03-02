@@ -77,7 +77,6 @@ module.exports = function(app) {
     })
       .then(data => {
         console.log(data)
-        if(data.length){
         res.render('partay', {
           user: req.user,
           partay_name: data[0]['Partay.partay_name'],
@@ -88,38 +87,8 @@ module.exports = function(app) {
           partay_image: data[0]['Partay.partay_image'],
           partayData: data.map(attendee => {return {
             name: attendee["User.first_name"] + " " + attendee["User.last_name"]
-          }}).reduce((acc, current) => { 
-            console.log(acc, current)   
-            if (acc.indexOf(current.name) < 0) acc.push(current.name);
-            return acc;
-          }, []).map(moniker=>{return{name: moniker}})
-        });
-      }else{
-        db.Partay.findAll({
-          raw: true,
-          where: {
-            id: partayId
-          },
-          include: [db.User]}).then(dataTwo => {
-
-            console.log(dataTwo)
-        
-          res.render('partay', {
-          user: req.user,
-          partay_name: dataTwo[0]['Partay.partay_name'],
-          partay_summary: dataTwo[0]['Partay.partay_summary'],
-          partay_date: dataTwo[0]['Partay.partay_date'],
-          partay_time: dataTwo[0]['Partay.partay_time'],
-          partay_location: dataTwo[0]['Partay.partay_location'],
-          partay_image: dataTwo[0]['Partay.partay_image'],
-          partayData: dataTwo.map(attendee => {return {
-            name: attendee["User.first_name"] + " " + attendee["User.last_name"]
           }})
         });
-
-          })
-      }
-
       })
       .catch(err => {
         throw err;
