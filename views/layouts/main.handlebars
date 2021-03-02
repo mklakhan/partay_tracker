@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="/stylesheets/style.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">  
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.3/dist/confetti.browser.min.js"></script>
+  {{!-- <script src="node_modules/confetti-js/dist/index.min.js"></script> --}}
 </head>
 
 <body>
@@ -22,7 +27,18 @@
       </div>
     </div>
   </nav>
+
   
   {{{body}}}
+
+  <footer>
+  <p>Partay Tracker</p>
+  </footer>
+<script>const confButton = document.querySelector(".btn");
+confButton.addEventListener("click", () => {
+  confetti();
+}) 
+</script> 
 </body>
+
 </html>
