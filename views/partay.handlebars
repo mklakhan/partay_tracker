@@ -1,17 +1,17 @@
 <div class="container">
     <div style="margin-top: 100px;" class="jumbotron">
-        <h1 id="partay-name" style="font-weight: 900;">{{this.partayData.partay_name}}</h1>
-        <img style="padding: 9px; width: 100%; height: 100%;" src="{{this.partayData.partay_image}}" alt="Partay Image">
-        <h3 id="partay-summary">What is this party about:
-            <p>{{this.partayData.partay_summary}}</p>
+        <h1 id="partay-name" style="font-weight: 900;">{{partay_name}}</h1>
+        <img style="padding: 9px; width: 100%; height: 100%;" src="{{partay_image}}" alt="Partay Image">
+        <h3 id="partay-summary">Summary:
+            <p>{{partay_summary}}</p>
         </h3>
-        <h3 id="partay-date">Date:<p>{{this.partayData.partay_date}}</p></h3>
-        <h3 id="party-time">Time:<p>{{this.partayData.partay_time}}</p></h3>
-        <h3 id="party-location">Location:<p>{{this.partayData.partay_location}}</p></h3>
+        <h3 id="partay-date">Date:<p>{{partay_date}}</p></h3>
+        <h3 id="party-time">Time:<p>{{partay_time}}</p></h3>
+        <h3 id="party-location">Location:<p>{{partay_location}}</p></h3>
+        <h3 id="attendees">People Attending:</h3>
+        {{#each partayData}}
+        <p>{{name}}</p>
+        {{/each}}
         <a href="/home" class="btn btn-primary" role="button">Home</a>
-
-        {{!-- {{#if (partyHost this.partayData.host_user_id)}}true{{else}}false{{/if}}
-        <h1>ONLY THE HOST CAN SEE THIS!</h1> --}}
     </div>
 </div>
-<script type="text/javascript" src="/js/partay.js"></script>

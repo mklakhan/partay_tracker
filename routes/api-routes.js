@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -33,11 +34,24 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/partays", (req, res) => {
-    // console.log(req.user)
-    // console.log(req.user.id)
-    // console.log(req.body)
+  
+  
+  
+  
+  // app.get("/api/attends", (req,res) => {
+  //   db.Attend.findOne({
+  //     partay_id: req.body.partay_id,
+  //     user_id: req.user.id
+  //   })
+  //   .then((attendingData) => {
+  //     console.log(attendingData)
+  //   })
+  //   .catch(err => {
+  //     res.status(401).json(err);
+  //   });
+  // });
 
+  app.post("/api/partays", (req, res) => {
     db.Partay.create({
       partay_name: req.body.partay_name,
       partay_summary: req.body.partay_summary,
@@ -49,35 +63,36 @@ module.exports = function(app) {
     })
     .then((newPartay) => {
       const p = newPartay.get({plain: true});
-      
-      console.log("list all parties " + p);
 
       res.send(`/partays/${p.id}`);
     })
     .catch(err => {
       res.status(401).json(err);
     });
-    // console.log("api_members_id" + req.body)
-    //  const user = db.User.findOne({
-    //    where: {id:req.params.id}
-    //  }).then(() => {
-    // console.log(req.body.partay_name);
-    //   const Partay = db.Partay.create({
-    //     partay_name: req.body.partay_name,
-    //     partay_summary: req.body.partay_summary,
-    //     partay_date: req.body.partay_date,
-    //     partay_time: req.body.partay_time
-    //   });
-    //   console.log("addUser");
-    //   Partay.setUser(user);
-    //  });
-      // .then(() => {
-      //   console.log(res.json(db.User))
-      //   // res.redirect(307, "/api/login");
-      // })
-      // .catch(err => {
-      //   res.status(401).json(err);
-      // });
+  });
+
+  app.post("/api/attends", (req,res) => {
+    console.log("------------------------")
+    console.log(req.body)
+    console.log("------------------------")
+    console.log(req.user)
+
+    db.Attend.create({
+      attending: true,
+      partay_id: req.body.partay_id,
+      user_id: req.user.id
+    })
+    .then((attendingData) => {
+      console.log(attendingData)
+      // const a = attendingData.get({plain: true});
+      // console.log(a)
+      res.send(`/partays/${req.body.partay_id}`)
+      // res.status(200).send();
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(401).json(err);
+    });
   });
 
   // Route for logging user out
