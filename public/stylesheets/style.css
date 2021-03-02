@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Monoton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Monoton&display=swap");
 
 form.signup,
 form.login {
@@ -129,7 +129,6 @@ span {
   }
 }
 
-
 .btn:hover {
   background-image: linear-gradient(
     to left,
@@ -256,12 +255,11 @@ span {
     display: block;
     font-size: 28px;
     color: white;
-    font-family: 'Monoton', cursive;
+    font-family: "Monoton", cursive;
   }
   .letter-one {
     display: none;
   }
- 
 }
 
 footer {

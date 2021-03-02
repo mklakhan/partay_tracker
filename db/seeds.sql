@@ -1,3 +1,4 @@
+
 INSERT INTO users (first_name, last_name, email, password) VALUES ('Pete', 'Scale', 'test1@test.com', 'partayyyy1');
 INSERT INTO users (first_name, last_name, email, password) VALUES ('Michael', 'Rosa', 'test2@test.com', 'partayyyy2');
 INSERT INTO users (first_name, last_name, email, password) VALUES ('Manpreet', 'Lakhan', 'test3@test.com', 'partayyyy3');

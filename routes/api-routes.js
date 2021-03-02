@@ -4,7 +4,7 @@ const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //for email via nodemailer
-const {transporter, emailData} = require("../util/nodetransport");
+const { transporter, emailData } = require("../util/nodetransport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -14,7 +14,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -27,25 +27,32 @@ module.exports = function(app) {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         // for email via nodemailer
-         transporter.sendMail( emailData (req.body.email, "🎉 Get Ready to Partay!🎉", "Welcome to Partay Tracker! You can now create events and stay up to date on new ones! 🥳"), (err, info) => {
-          if (err) {
-            console.log(err)
-          } else {
-            console.log(`email sent: ${info.response}`)
+        transporter.sendMail(
+          emailData(
+            req.body.email,
+            "🎉 Get Ready to Partay!🎉",
+            "Welcome to Partay Tracker! You can now create events and stay up to date on new ones! 🥳"
+          ),
+          (err, info) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(`email sent: ${info.response}`);
+            }
           }
-        });
+        );
         // res.redirect(307, "/api/login");
       })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
-        console.log(err)
-        res.status(400).json({error: 'This user already exists.'});
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ error: "This user already exists." });
       });
   });
 
@@ -57,59 +64,59 @@ module.exports = function(app) {
       partay_time: req.body.partay_time,
       partay_location: req.body.partay_location,
       partay_image: req.body.partay_image,
-      host_user_id: req.user.id
+      host_user_id: req.user.id,
     })
 
       .then((newPartay) => {
         const p = newPartay.get({ plain: true });
         db.User.findAll({
-          attributes: ['email']
-        })
-        .then((data) => { 
-          const userEmails = data.map((user) => { 
-            return user.dataValues.email
-          })
-          let msg = `A new partay has been added by ${req.user.first_name}! The event is called ${req.body.partay_name} and is happening on ${req.body.partay_date} at ${req.body.partay_time} and located at ${req.body.partay_location}! Hope to see you there! 🥳`
+          attributes: ["email"],
+        }).then((data) => {
+          const userEmails = data.map((user) => {
+            return user.dataValues.email;
+          });
+          let msg = `A new partay has been added by ${req.user.first_name}! The event is called ${req.body.partay_name} and is happening on ${req.body.partay_date} at ${req.body.partay_time} and located at ${req.body.partay_location}! Hope to see you there! 🥳`;
 
-        transporter.sendMail(emailData(userEmails.toString(), "🎉 Join the Partay! 🎉", msg), (err, info) => {
-          if (err) {
-          } else {
-            return results
-          }
-        });
+          transporter.sendMail(
+            emailData(userEmails.toString(), "🎉 Join the Partay! 🎉", msg),
+            (err, info) => {
+              if (err) {
+              } else {
+                return results;
+              }
+            }
+          );
           res.send(`/partays/${p.id}`);
-        })
-       
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
-    });
+  });
 
-  app.post("/api/attends", (req,res) => {
-    console.log("------------------------")
-    console.log(req.body)
-    console.log("------------------------")
-    console.log(req.user)
+  app.post("/api/attends", (req, res) => {
+    console.log("------------------------");
+    console.log(req.body);
+    console.log("------------------------");
+    console.log(req.user);
 
     db.Attend.create({
       attending: true,
       partay_id: req.body.partay_id,
-      user_id: req.user.id
+      user_id: req.user.id,
     })
-    .then((attendingData) => {
-      console.log(attendingData)
-      // const a = attendingData.get({plain: true});
-      // console.log(a)
-      res.send(`/partays/${req.body.partay_id}`)
-      // res.status(200).send();
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(402).json(err);
-    });
+      .then((attendingData) => {
+        console.log(attendingData);
+        // const a = attendingData.get({plain: true});
+        // console.log(a)
+        res.send(`/partays/${req.body.partay_id}`);
+        // res.status(200).send();
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(402).json(err);
+      });
   });
-
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -129,8 +136,8 @@ module.exports = function(app) {
         first_name: req.user.first_name,
         last_name: req.user.last_name,
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
-}
+};

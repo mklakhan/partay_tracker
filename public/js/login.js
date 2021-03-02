@@ -5,11 +5,11 @@ $(document).ready(() => {
   const passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", event => {
+  loginForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.email || !userData.password) {
@@ -26,25 +26,25 @@ $(document).ready(() => {
   function loginUser(email, password) {
     $.post("/api/login", {
       email: email,
-      password: password
+      password: password,
     })
       .then(() => {
         window.location.replace("/home");
         // If there's an error, log the error
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
 });
 
 let animation = anime({
-  targets: '.letter',
+  targets: ".letter",
   opacity: 1,
-  translateY: 15, 
+  translateY: 15,
   scale: [
-    {value: .1, easing: 'easeOutSine', duration: 500},
-    {value: 1, easing: 'easeInOutQuad', duration: 1200}
+    { value: 0.1, easing: "easeOutSine", duration: 500 },
+    { value: 1, easing: "easeInOutQuad", duration: 1200 },
   ],
-  delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
-}); 
+  delay: anime.stagger(200, { grid: [14, 5], from: "center" }),
+});
