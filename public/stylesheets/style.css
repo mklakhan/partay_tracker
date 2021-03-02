@@ -1,52 +1,38 @@
 form.signup,
 form.login {
   margin: 50px;
-  
 }
 
 .navbar {
   background: transparent;
   border-color: transparent;
-
-  }
-
-  .navbar-brand {
-  text-decoration:white
-  }
-
-  text-shadow: 2px 2px 4px black, 0 0 35px white, 0 0 5px #230b72;
-  
 }
 
- a {
+a {
   color: inherit;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
   color: green;
   /* text-shadow: 1px 1px 2px black, 0 0 25px white; */
 }
 
-
 body {
   background-color: #230b72;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .form-group {
   color: #ffff;
 }
 
-
 .letter {
   display: inline-block;
   opacity: 0;
   font-weight: 700;
   color: white;
- 
 }
-
 
 .letter-one {
   display: block;
@@ -58,7 +44,6 @@ body {
   white-space: pre-wrap;
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px #230b72;
- 
 }
 
 span {
@@ -68,11 +53,22 @@ span {
 /* signup  */
 
 .signup:before {
-  content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -80,12 +76,12 @@ span {
   height: calc(100% + 4px);
   animation: glowing 60s linear infinite;
   opacity: 0;
-  transition: opacity .4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
   border-radius: 10px;
 }
 
 .signup:active {
-  color: #4c16ff
+  color: #4c16ff;
 }
 
 .signup:active:after {
@@ -102,7 +98,18 @@ span {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
   left: 0;
   top: 0;
   border-radius: 20px;
@@ -110,25 +117,47 @@ span {
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .btn:hover {
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-
 /* create partay */
 .partay:before {
-  content: '';
-  background: linear-gradient(45deg, #ff7300,#fffb00, #48ff00, #00ffd5, #002bff, #7a00ff);
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff
+  );
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(3px);
@@ -136,12 +165,12 @@ span {
   height: calc(100% + 4px);
   animation: glowing 60s linear infinite;
   opacity: 0;
-  transition: opacity .4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
   border-radius: 10px;
 }
 
 .partay:active {
-  color: #4c16ff
+  color: #4c16ff;
 }
 
 .partay:active:after {
@@ -158,21 +187,28 @@ span {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg,#ff7300,#fffb00, #48ff00, #00ffd5, #002bff, #7a00ff);
+  background: linear-gradient(
+    45deg,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff
+  );
   left: 0;
   top: 0;
   border-radius: 20px;
   animation: glowing 60s linear infinite;
 }
 
-
 /* login */
 .login:before {
-  content: '';
+  content: "";
   background: linear-gradient(45deg, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -180,12 +216,12 @@ span {
   height: calc(100% + 4px);
   animation: glowing 60s linear infinite;
   opacity: 0;
-  transition: opacity .4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
   border-radius: 10px;
 }
 
 .login:active {
-  color: #4c16ff
+  color: #4c16ff;
 }
 
 .login:active:after {
@@ -215,12 +251,15 @@ span {
 } */
 
 @media only screen and (max-width: 325px) {
-  .col-md-3{width: 10%; display: none ;font-size: 12px;}
-  .col-md-9{width: 76%;}
-  
-
-} 
-
+  .col-md-3 {
+    width: 10%;
+    display: none;
+    font-size: 12px;
+  }
+  .col-md-9 {
+    width: 76%;
+  }
+}
 
 footer {
   left: 0;
@@ -229,9 +268,7 @@ footer {
   color: white;
   text-align: center;
   font-size: small;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   padding: 3em;
   margin-top: auto;
 }
-
-
