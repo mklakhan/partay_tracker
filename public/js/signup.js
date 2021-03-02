@@ -42,11 +42,13 @@ $(document).ready(() => {
         window.location.replace("/home");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
-      .catch(handleLoginErr);
+      .catch((handleLoginErr) => {
+        console.log('handleLoginErr', handleLoginErr)
+      });
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text(err.responseJSON.error);
     $("#alert").fadeIn(500);
   }
 });
