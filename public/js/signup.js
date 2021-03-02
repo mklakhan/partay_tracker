@@ -68,12 +68,27 @@ let animationOne = anime({
   targets: '.letter-one',
   opacity: 1,
   translateX: -50,
-  // delay: anime.stagger(100),
-  // translateX: 250,
-  delay: function(el, i) { return i * 100; },
+  delay: function(el, i) { return i * 450; },
   direction: 'alternate',
   loop: true,
   easing: 'easeInOutSine'
  
 });
+
+let animationThree = anime.timeline({loop: false})
+.add({
+  targets: '.hidden-text',
+  scale: [14,1],
+  opacity: [0,1],
+  easing: "easeOutCirc",
+  duration: 800,
+  delay: (el, i) => 200 * i
+}).add({
+  targets: '.hidden-text',
+  opacity: 1,
+  duration: 1000,
+  easing: "easeOutExpo",
+  delay: 1000
+});
+
 

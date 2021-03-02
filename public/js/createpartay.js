@@ -64,7 +64,7 @@ let animationOne = anime.timeline({loop: false})
   opacity: [0,1],
   easing: "easeOutCirc",
   duration: 800,
-  delay: (el, i) => 300 * i
+  delay: (el, i) => 200 * i
 }).add({
   targets: '.letter',
   opacity: 1,
