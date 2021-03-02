@@ -45,7 +45,7 @@ module.exports = function(app) {
       })
       .catch(err => {
         console.log(err)
-        res.status(401).json({error: 'This user already exists.'});
+        res.status(400).json({error: 'This user already exists.'});
       });
   });
 
@@ -109,7 +109,7 @@ module.exports = function(app) {
     })
     .catch(err => {
       console.log(err)
-      res.status(401).json(err);
+      res.status(402).json(err);
     });
   });
 
