@@ -1,4 +1,4 @@
-# Partayyy Tracker 
+# Partay Tracker 
 A web application that allows users to create and attend events/partays occuring in your inner circle. Users can add important details to their event including title for party, summary, date, time, location, and an image. Users of the app can also stay in the loop of all the other events/parties being created through emailed notifications. 
 
 
