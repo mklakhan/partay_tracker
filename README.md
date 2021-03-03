@@ -26,15 +26,15 @@ A web application that allows users to create and attend events/partays occuring
 
 
 ## Screenshots
-![alternativetext](reference/signup.png)
+![alternativetext](public/reference/signup.png)
 ##
-![alternativetext](reference/login.png)
+![alternativetext](public/reference/login.png)
 ##
-![alternativetext](reference/createpartay.png)
+![alternativetext](public/reference/createpartay.png)
 ##
-![alternativetext](reference/partays.png)
+![alternativetext](public/reference/partays.png)
 ##
-![alternativetext](reference/partaydetails.png)
+![alternativetext](public/reference/partaydetails.png)
 
 
 ## Technologies 
