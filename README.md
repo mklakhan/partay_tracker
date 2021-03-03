@@ -64,7 +64,7 @@ A web application that allows users to create and attend events/partays occurrin
 ---
 
 ## Usage 
-![Applicaton in use]()
+![Applicaton in use](public/reference/partay.gif)
 
 ---
 
@@ -74,11 +74,13 @@ A web application that allows users to create and attend events/partays occurrin
 ![CreatePartay](public/reference/createpartay.png)
 ![Partays](public/reference/partays.png)
 ![PartayDetails](public/reference/partaydetails.png)
+![PartayDetails](public/reference/signupemail.png)
+![PartayDetails](public/reference/newpartayemail.png)
 
 ---
 
 ## Tests
-[Test of the application]()
+[Test of the application](https://drive.google.com/file/d/1EPUFHJj9kkcOJrQDE88PS_fkuI3amRlz/view?usp=sharing)
 
 ---
 
@@ -130,7 +132,7 @@ A web application that allows users to create and attend events/partays occurrin
 ---
 
 ## Contributing
-Anyone can contribute to this file by forking the repo, adding their code to the application, and then sending any of the contributors a pull request so the main branch can be updated.
+Anyone can contribute to this application by forking the repo, adding their code to the application, and then sending any of the contributors a pull request so the main branch can be updated.
 
 ---
 
