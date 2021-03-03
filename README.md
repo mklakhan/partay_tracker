@@ -1,10 +1,14 @@
 # Partay Tracker 
-A web application that allows users to create and attend events/partays occuring in your inner circle. Users can add important details to their event including title for party, summary, date, time, location, and an image. Users of the app can also stay in the loop of all the other events/parties being created through emailed notifications. 
+A web application that allows users to create and attend events/partays occurring in their social circle. Users can add important details to their event including a title, summary, date, time, location, and an image. Users of the app can also stay in the loop of all other events/parties being created through emailed notifications. 
+
+```
+Link to App - https://hidden-ridge-88260.herokuapp.com/
+```
 
 
 ## User Stories
 
-- As a party thrower, I want my friends & family to be aware of the event(s) I am throwing, so that they have all the important details (date, time, location, etc).
+- As a party thrower, I want my social circle to be aware of the event(s) I am throwing, so that they have all the important details (date, time, location, etc).
 - As a party goer, I want to see all the events happening in my social circle, so that I can keep track of what’s happening & when.
 
 
@@ -35,6 +39,7 @@ A web application that allows users to create and attend events/partays occuring
 ![alternativetext](public/reference/partays.png)
 ##
 ![alternativetext](public/reference/partaydetails.png)
+##
 
 
 ## Technologies 
